@@ -6,9 +6,9 @@ import java.util.Properties;
 public class DatabaseConnectionManager {
     private final String url;
     private final Properties properties;
-    public DatabaseConnectionManager(String host, String databaseName,
+    public DatabaseConnectionManager( String databaseName,
                                      String username, String password){
-        this.url = "jdbc.postgresql://"+host+"/"+databaseName;
+        this.url = "jdbc:postgresql:"+databaseName;
         this.properties = new Properties();
         this.properties.setProperty("user",username);
         this.properties.setProperty("password",password);
@@ -17,4 +17,3 @@ public class DatabaseConnectionManager {
         return DriverManager.getConnection(this.url, this.properties);
     }
 }
-//http://localhost:8080/?pgsql=postgres&username=user&db=umuzi&ns=public
